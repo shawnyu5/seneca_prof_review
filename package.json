@@ -1,0 +1,25 @@
+{
+  "name": "seneca_prof_review",
+  "version": "1.0.0",
+  "description": "A place for people to add reviews about a course, and the profs that teaches it.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shawnyu5/seneca_prof_review.git"
+  },
+  "author": "Shawn Yu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shawnyu5/seneca_prof_review/issues"
+  },
+  "homepage": "https://github.com/shawnyu5/seneca_prof_review#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "mongoose": "^6.1.3"
+  }
+}
