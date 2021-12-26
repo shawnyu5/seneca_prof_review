@@ -13,7 +13,7 @@ a relational data base.
 Stores the following information:
 
 ```json
-prof:
+Prof:
 {
     "prof": String,
     "course": String,
