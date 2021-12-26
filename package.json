@@ -4,7 +4,6 @@
   "description": "A place for people to add reviews about a course, and the profs that teaches it.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
