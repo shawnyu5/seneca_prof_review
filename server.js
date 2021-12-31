@@ -22,7 +22,10 @@ app.set("view engine", ".hbs");
 app.use(express.static("public"));
 
 function onStart() {
-    console.log("express listening on", HTTP_PORT);
+    dataService.initialize()
+        .then(() => {
+            console.log("express listening on", HTTP_PORT);
+        })
 }
 
 app.get("/", function(request, response) {
@@ -31,7 +34,16 @@ app.get("/", function(request, response) {
 
 // display all profs
 app.get("/profs", function(request, response) {
-    response.render("profs");
+    dataService.getAllProfs()
+        .then((data) => {
+            console.log("all profs: ", data);
+            response.render("profs", {
+                profs: data
+            });
+        })
+        .catch((error) => {
+            response.send(error)
+        });
 });
 
 // display all courses
