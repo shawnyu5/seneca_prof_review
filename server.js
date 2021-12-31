@@ -36,16 +36,16 @@ app.get("/", function(request, response) {
 app.get("/profs", function(request, response) {
     dataService.getAllProfs()
         .then((data) => {
-            // data = [
-                // {
-                    // profName: "John",
-                    // rating: 12
-                // },
-                // {
-                    // profName: "shawn",
-                    // rating: 13
-                // }
-            // ]
+            data = [
+                {
+                    profName: "John",
+                    rating: 12
+                },
+                {
+                    profName: "shawn",
+                    rating: 13
+                }
+            ]
             response.render("profs", {
                 profs: data
             });
