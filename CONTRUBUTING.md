@@ -1,4 +1,4 @@
-Contrubuting guide
+Contributing guide
 
 All pull requests should be prefixed with one of the
 [following](https://github.com/commitizen/conventional-commit-types/blob/master/index.json)
