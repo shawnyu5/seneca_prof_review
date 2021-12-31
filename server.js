@@ -5,6 +5,8 @@ let handleBars = require("express-handlebars")
 let app = express();
 const HTTP_PORT = process.env.port || 8080;
 
+let dataService = require("./data-service")
+
 app.use(express.urlencoded({ extended: true }));
 
 app.engine(
@@ -21,7 +23,6 @@ app.set("view engine", ".hbs");
 function onStart() {
     console.log("express listening on", HTTP_PORT);
 }
-
 
 app.get("/", function(request, response) {
     response.redirect("/profs");

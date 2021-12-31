@@ -7,27 +7,24 @@
 
 ## data base
 
-Use mongo, no SQL non relational data base. I don't think I see a reason to use
-a relational data base.
+~~Use mongo, no SQL non relational data base. I don't think I see a reason to use
+a relational data base.~~
+
+Use a relational data base. So all reviews can be associated with a professor.
+Probably will make life easier down the line. Idk...
 
 Stores the following information:
 
-```json
-Prof:
-{
-    "prof": String,
-    "course": String,
-    "rating": Number,
-    "review": String
-}
+Prof table:
 
-Course:
-{
-    "courseCode": String,
-    "rating": Number,
-    "review": String
-}
-```
+| Prof name (primary key)|
+|------------------------|
+
+Reviews table:
+
+| Prof name (foreign key) | rating | review
+|-------------------------|-------|-------|
+
 
 ## Routes
 
