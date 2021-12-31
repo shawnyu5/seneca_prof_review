@@ -36,12 +36,22 @@ app.get("/", function(request, response) {
 app.get("/profs", function(request, response) {
     dataService.getAllProfs()
         .then((data) => {
-            console.log("all profs: ", data);
+            // data = [
+                // {
+                    // profName: "John",
+                    // rating: 12
+                // },
+                // {
+                    // profName: "shawn",
+                    // rating: 13
+                // }
+            // ]
             response.render("profs", {
                 profs: data
             });
         })
         .catch((error) => {
+            console.log("catch");
             response.send(error)
         });
 });
