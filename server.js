@@ -19,6 +19,7 @@ app.engine(
 );
 
 app.set("view engine", ".hbs");
+app.use(express.static("public"));
 
 function onStart() {
     console.log("express listening on", HTTP_PORT);
