@@ -26,6 +26,9 @@ function onStart() {
         .then(() => {
             console.log("express listening on", HTTP_PORT);
         })
+        .catch(() => {
+            console.log("connection to data base failed");
+        })
 }
 
 app.get("/", function(request, response) {
