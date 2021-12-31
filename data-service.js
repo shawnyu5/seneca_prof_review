@@ -13,6 +13,41 @@ let sequelize = new Sequelize(
         dialectOptions: {
             ssl: { rejectUnauthorized: false }
         },
-        query: { raw: true }
+        query: { raw: true },
+        logging: false
     });
+
+let Profs = sequelize.define("Profs", {
+    profName: {
+        type: Sequelize.STRING,
+        primaryKey: true
+    }
+});
+
+let Reviews = sequelize.define("Reviews", {
+    rating: Sequelize.STRING,
+    review: Sequelize.STRING
+});
+
+// syncs database
+module.exports.initialize = function() {
+    return new Promise(function(resolve, reject) {
+        sequelize.sync()
+            .then(function() {
+                resolve();
+            });
+    });
+}
+
+module.exports.getAllProfs = function() {
+    return new Promise(function(resolve, reject) {
+        Profs.findAll()
+            .then(function(data) {
+                resolve(data);
+            })
+            .catch(() => {
+                reject("Unable to retrieve all profs");
+            })
+    });
+}
 

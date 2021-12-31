@@ -1,1 +1,17 @@
-<p>hello world</p>
+<!DOCTYPE html>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Professor Name    </th>
+            <th scope="col">Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each profs}}
+        <tr>
+            <th scope="row">{{ this.profName }}</th>
+            <td>{{ this.rating }}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

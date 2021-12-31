@@ -19,9 +19,13 @@ app.engine(
 );
 
 app.set("view engine", ".hbs");
+app.use(express.static("public"));
 
 function onStart() {
-    console.log("express listening on", HTTP_PORT);
+    dataService.initialize()
+        .then(() => {
+            console.log("express listening on", HTTP_PORT);
+        })
 }
 
 app.get("/", function(request, response) {
@@ -30,7 +34,26 @@ app.get("/", function(request, response) {
 
 // display all profs
 app.get("/profs", function(request, response) {
-    response.render("profs");
+    dataService.getAllProfs()
+        .then((data) => {
+            // data = [
+                // {
+                    // profName: "John",
+                    // rating: 12
+                // },
+                // {
+                    // profName: "shawn",
+                    // rating: 13
+                // }
+            // ]
+            response.render("profs", {
+                profs: data
+            });
+        })
+        .catch((error) => {
+            console.log("catch");
+            response.send(error)
+        });
 });
 
 // display all courses
