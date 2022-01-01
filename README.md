@@ -7,4 +7,5 @@ A place for people to add reviews about a course, and the profs that teaches it.
 # Development
 
 Requires a local postgres data base instance. Rename `example.env` to `.env` and
-fill out data base information.
+fill out data base information. Then run `npm i` to install al dependencies, and
+`npm start` to start server.
