@@ -70,13 +70,21 @@ app.get("/course/:courseName", function(request, response) {
 });
 
 // return reviews for a spesfic prof
-app.get("/prof/:name", function(request, response) {
+app.get("/prof/", function(request, response) {
     response.render("single_prof");
 });
 
 // return all reviews
 app.get("/reviews", function(request, response) {
     response.render("reviews");
+});
+
+app.get("/submit", function(request, response) {
+    response.render("submit");
+});
+
+app.post("/submit", function(request, response) {
+    console.log(request.body);
 });
 
 app.listen(HTTP_PORT, onStart);

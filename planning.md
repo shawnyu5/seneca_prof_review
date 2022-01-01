@@ -30,15 +30,18 @@ Reviews table:
 
 * `/profs` - a list of all profs in data base
 
+* `/submit` - submit reviews for a course. TODO: figure how this page will work
+
 * `/courses` - list of all courses in data base
 
 * `/course/:course` - list of profs for a specific course
 
-* `/prof/:prof` - reviews for a specific prof
+* `/prof/?prof=name` - reviews for a specific prof. At the bottom of the page, should
+  allow users to submit a review for that prof. Where the query string contains
+  the name of the prof. Which then can be extracted via `request.query.prof`
 
 * `/course/:course` - reviews for a course
 
 * `/reviews` - a choice of profs vs courses. Then display a list of all profs /
 courses in the data base.
 
-* `/submit` - submit reviews for a course. TODO: figure how this page will work
