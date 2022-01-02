@@ -36,9 +36,12 @@ Reviews table:
 
 * `/course/:course` - list of profs for a specific course
 
-* `/prof/?prof=name` - reviews for a specific prof. At the bottom of the page, should
+* `/prof/?name=name` - reviews for a specific prof. At the bottom of the page, should
 allow users to submit a review for that prof. Where the query string contains
 the name of the prof. Which then can be extracted via `request.query.prof`
+
+   * Reviews should be submitted to `/review/submit`, which adds the review to
+     the data base, and redirect to thank you page?
 
 * `/course/:course` - reviews for a course
 
