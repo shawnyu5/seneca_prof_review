@@ -18,16 +18,19 @@ let sequelize = new Sequelize(
     });
 
 let Profs = sequelize.define("Profs", {
-    profName: {
+    name: {
         type: Sequelize.STRING,
         primaryKey: true
-    }
+    },
+    subjects: Sequelize.STRING
 });
 
 let Reviews = sequelize.define("Reviews", {
     rating: Sequelize.STRING,
     review: Sequelize.STRING
 });
+
+Profs.hasMany(Reviews, { foreignkey: "Prof"})
 
 // syncs database
 module.exports.initialize = function() {
@@ -45,7 +48,8 @@ module.exports.getAllProfs = function() {
             .then(function(data) {
                 resolve(data);
             })
-            .catch(() => {
+            .catch((error) => {
+                console.log(error)
                 reject("Unable to retrieve all profs");
             })
     });

@@ -35,6 +35,36 @@ app.get("/", function(request, response) {
    response.redirect("/profs");
 });
 
+// return reviews for a spesfic prof
+app.get("/prof/", function(request, response) {
+   let prof = request.query.name
+   console.log(prof);
+   if(!prof) {
+      response.redirect("/profs");
+      return
+   }
+
+   dataService.findProf(prof)
+      .then((data) => {
+         // NOTE: hard coded data for testing
+         data = {
+            profName: "John",
+            rating: 12,
+            review: "Great prof!!!"
+         };
+
+         response.render("single_prof", {
+            prof: data
+         })
+      })
+      .catch(() => {
+         response.render("single_prof", {
+            error: "No prof found"
+         })
+      });
+});
+
+
 // display all profs
 app.get("/profs", function(request, response) {
    dataService.getAllProfs()
@@ -55,7 +85,6 @@ app.get("/profs", function(request, response) {
          });
       })
       .catch((error) => {
-         console.log("catch");
          response.send(error)
       });
 });
@@ -70,28 +99,6 @@ app.get("/course/:courseName", function(request, response) {
    response.render("single_course");
 });
 
-// return reviews for a spesfic prof
-app.get("/prof/", function(request, response) {
-   let prof = request.query.prof
-   dataService.findProf(prof)
-      .then((data) => {
-         // NOTE: hard coded data for testing
-         data = {
-            profName: "John",
-            rating: 12,
-            review: "Great prof!!!"
-         };
-
-         response.render("single_prof", {
-            prof: data
-         })
-      })
-      .catch(() => {
-         response.render("single_prof", {
-            error: "No prof found"
-         })
-      });
-});
 
 // return all reviews
 app.get("/reviews", function(request, response) {

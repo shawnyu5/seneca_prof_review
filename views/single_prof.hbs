@@ -24,6 +24,9 @@
       <meta property="og:type" content="website">
    </head>
    <body data-home-page-title="prof" class="u-body">
+      <!-- {{#unless prof}} -->
+      <!-- <h1>{{error}}</h1> -->
+      <!-- {{/unless}} -->
       <header class="u-clearfix u-header u-header" id="sec-be52">
          <section class="u-clearfix u-section-1" id="sec-1e7d">
             <div class="u-clearfix u-sheet u-sheet-1">
@@ -34,6 +37,28 @@
                </div>
             </div>
          </section>
+
+         <br>
+
+         <table>
+            <thead>
+               <tr>
+                  <h2>{{prof.name}}</h2>
+               </tr>
+            </thead>
+
+            <tr>
+               <h3>Rating: {{prof.rating}}</h3>
+               <p>{{prof.review}}</p>
+            </tr>
+         </table>
+
+         <br>
+         <br>
+         <br>
+         <br>
+
+         <!-- TODO: add forum to submit prof review -->
 
    </body>
 </html>
