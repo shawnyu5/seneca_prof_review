@@ -51,3 +51,17 @@ module.exports.getAllProfs = function() {
     });
 }
 
+module.exports.findProf = function(name) {
+    return new Promise(function(resolve, reject) {
+        Profs.findAll({
+            profName: name
+        })
+            .then((data) => {
+                resolve(data);
+            })
+            .catch(() => {
+                reject(`No prof with ${name} found`);
+            })
+    });
+}
+
