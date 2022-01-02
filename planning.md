@@ -37,8 +37,8 @@ Reviews table:
 * `/course/:course` - list of profs for a specific course
 
 * `/prof/?prof=name` - reviews for a specific prof. At the bottom of the page, should
-  allow users to submit a review for that prof. Where the query string contains
-  the name of the prof. Which then can be extracted via `request.query.prof`
+allow users to submit a review for that prof. Where the query string contains
+the name of the prof. Which then can be extracted via `request.query.prof`
 
 * `/course/:course` - reviews for a course
 
