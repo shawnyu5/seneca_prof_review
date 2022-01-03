@@ -48,7 +48,7 @@ app.get("/prof/", function(request, response) {
       .then((data) => {
          // NOTE: hard coded data for testing
          data = {
-            profName: "John",
+            name: "John",
             rating: 12,
             review: "Great prof!!!"
          };
@@ -63,6 +63,18 @@ app.get("/prof/", function(request, response) {
          })
       });
 });
+
+// adds review to data base
+app.post("/reviews/submit", function(request, response) {
+   let review = request.body;
+   dataService.addReview(review)
+      .then(() => {
+         response.send(review);
+      })
+      .catch((error) => {
+         response.send(error)
+      });
+})
 
 
 // display all profs

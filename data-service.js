@@ -26,6 +26,7 @@ let Profs = sequelize.define("Profs", {
 });
 
 let Reviews = sequelize.define("Reviews", {
+    title: Sequelize.STRING,
     rating: Sequelize.STRING,
     review: Sequelize.STRING
 });
@@ -68,4 +69,23 @@ module.exports.findProf = function(name) {
             })
     });
 }
+
+module.exports.addReview = function(review) {
+    return new Promise(function(resolve, reject) {
+       // console.log("name is " + review.profName)
+        Reviews.create({
+            title: review.reviewTitle,
+            rating: review.reviewRating,
+            review: review.reviewText,
+            profName: review.profName
+        })
+            .then(() => {
+                resolve();
+            })
+            .catch((error) => {
+                console.log(error)
+                reject(error);
+            });
+    });
+};
 
