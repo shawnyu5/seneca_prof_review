@@ -35,7 +35,7 @@ app.get("/", function(request, response) {
    response.redirect("/profs");
 });
 
-// return reviews for a spesfic prof
+// display a single prof
 app.get("/prof/", function(request, response) {
    let prof = request.query.name
    console.log(prof);
@@ -47,11 +47,13 @@ app.get("/prof/", function(request, response) {
    dataService.findProf(prof)
       .then((data) => {
          // NOTE: hard coded data for testing
-         data = {
-            name: "John",
-            rating: 12,
-            review: "Great prof!!!"
-         };
+         data = [
+            {
+               name: "John",
+               rating: 12,
+               review: "Great prof!!!"
+            }
+         ];
 
          response.render("single_prof", {
             prof: data

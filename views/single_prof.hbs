@@ -38,12 +38,14 @@
       <header class="u-clearfix u-header u-header" id="sec-be52">
          <section class="u-clearfix u-section-1" id="sec-1e7d">
             <div class="u-clearfix u-sheet u-sheet-1">
-               <h1 class="u-text u-text-default u-text-1" spellcheck="false">{{prof.name}}</h1>
+               <h1 class="u-text u-text-default u-text-1" spellcheck="false">{{prof.0.name}}</h1>
                <div class="u-container-style u-expanded-width u-group u-shape-rectangle u-group-1">
                   <div class="u-container-layout u-container-layout-1"></div>
             </div>
          </section>
          <br>
+         <!-- NOTE this should be looping over an array -->
+         {{#each prof}}
          <table>
             <thead>
                <tr>
@@ -51,10 +53,11 @@
                </tr>
             </thead>
             <tr>
-               <h3>Rating: {{prof.rating}}</h3>
-               <p>{{prof.review}}</p>
+               <h3>Rating: {{this.rating}}</h3>
+               <p>{{this.review}}</p>
             </tr>
          </table>
+         {{/each}}
 
          <br>
          <br>
@@ -74,7 +77,8 @@
             </div>
             <!-- hidden prof name field -->
             <div class="form-group">
-               <input class="form-control" id="profName" name="profName" value="{{prof.name}}" type="hidden" />
+               <!-- <p>{{prof.0.name}}</p> -->
+               <input class="form-control" id="profName" name="profName" value="{{prof.0.name}}" type="hidden" />
             </div>
 
             <input type="submit" class="btn btn-primary pull-right btn btn-success" value="Submit review" /><br /><br /><br />

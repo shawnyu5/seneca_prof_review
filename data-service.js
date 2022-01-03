@@ -31,11 +31,16 @@ let Reviews = sequelize.define("Reviews", {
     review: Sequelize.STRING
 });
 
-Profs.hasMany(Reviews, { foreignkey: "Prof"})
+Profs.hasMany(Reviews, {
+   foreignkey: "profName"
+});
+
+Reviews.belongsTo(Profs);
 
 // syncs database
 module.exports.initialize = function() {
     return new Promise(function(resolve, reject) {
+       // sequelize.drop()
         sequelize.sync()
             .then(function() {
                 resolve();
@@ -61,7 +66,7 @@ module.exports.findProf = function(name) {
         Profs.findAll({
             profName: name
         })
-            .then((data) => {
+          .then((data) => {
                 resolve(data);
             })
             .catch(() => {
@@ -72,7 +77,7 @@ module.exports.findProf = function(name) {
 
 module.exports.addReview = function(review) {
     return new Promise(function(resolve, reject) {
-       // console.log("name is " + review.profName)
+       console.log("name is " + review.profName)
         Reviews.create({
             title: review.reviewTitle,
             rating: review.reviewRating,
