@@ -82,7 +82,7 @@ module.exports.addReview = function(review) {
             title: review.reviewTitle,
             rating: review.reviewRating,
             review: review.reviewText,
-            profName: review.profName
+            // profName: review.profName
         })
             .then(() => {
                 resolve();
