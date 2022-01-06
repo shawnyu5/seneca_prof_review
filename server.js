@@ -119,6 +119,7 @@ app.get("/reviews", function(request, response) {
    response.render("reviews");
 });
 
+// submit a prof
 app.get("/submit", function(request, response) {
    response.render("submit");
 });
