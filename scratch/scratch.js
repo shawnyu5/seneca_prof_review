@@ -1,5 +1,4 @@
 require("dotenv").config()
-const { create } = require("handlebars");
 const Sequelize = require('sequelize');
 
 let sequelize = new Sequelize(
