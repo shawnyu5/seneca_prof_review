@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <meta name="keywords" content="Prof name">
+      <meta name="description" content="">
+      <meta name="page_type" content="np-template-header-footer-from-plugin">
+      <title>prof</title>
+      <link rel="stylesheet" href="./single_prof/nicepage.css" media="screen">
+      <link rel="stylesheet" href="prof.css" media="screen">
+      <script class="u-script" type="text/javascript" src="./single_prof/jquery-1.9.1.min.js" defer=""></script>
+      <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+      <!-- <script type="application/ld+json">{ -->
+         <!-- "@context": "http://schema.org", -->
+      <!-- "@type": "Organization", -->
+      <!-- "name": "", -->
+      <!-- "logo": "images/default-logo.png" -->
+<!-- }</script> -->
+      <!-- <meta name="theme-color" content="#478ac9"> -->
+
+      <meta property="og:title" content="prof">
+      <meta property="og:type" content="website">
+   </head>
+   <body data-home-page-title="prof" class="u-body">
+      <!-- {{#unless prof}} -->
+      <!-- <h1>{{error}}</h1> -->
+      <!-- {{/unless}} -->
+      <header class="u-clearfix u-header u-header" id="sec-be52">
+         <section class="u-clearfix u-section-1" id="sec-1e7d">
+            <div class="u-clearfix u-sheet u-sheet-1">
+               <h1 class="u-text u-text-default u-text-1" spellcheck="false">{{prof.0.name}}</h1>
+               <div class="u-container-style u-expanded-width u-group u-shape-rectangle u-group-1">
+                  <div class="u-container-layout u-container-layout-1"></div>
+            </div>
+         </section>
+         <br>
+         <!-- NOTE this should be looping over an array -->
+         {{#each prof}}
+         <table>
+            <thead>
+               <tr>
+                  <!-- <h2>{{prof.name}}</h2> -->
+               </tr>
+            </thead>
+            <tr>
+               <h3>Rating: {{this.rating}}</h3>
+               <p>{{this.review}}</p>
+            </tr>
+         </table>
+         {{/each}}
+
+         <br>
+         <br>
+         <br>
+         <br>
+
+         <h2>Add a review:</h2>
+         <form method="post" action="/reviews/submit">
+            <div class="form-group">
+               <!-- <label for="title">New review</label> -->
+               <input name="reviewTitle" type="text" class="form-control" id="reviewTitle" placeholder="Review title">
+            </div>
+
+            <div class="form-group">
+               <!-- <label for="exampleFormControlTextarea1">Example textarea</label> -->
+               <textarea name="reviewText" class="form-control" id="reviewText" rows="7" placeholder="Review"></textarea>
+            </div>
+            <!-- hidden prof name field -->
+            <div class="form-group">
+               <!-- <p>{{prof.0.name}}</p> -->
+               <input class="form-control" id="profName" name="profName" value="{{prof.0.name}}" type="hidden" />
+            </div>
+
+            <input type="submit" class="btn btn-primary pull-right btn btn-success" value="Submit review" /><br /><br /><br />
+
+         </form>
+   </body>
+</html>
